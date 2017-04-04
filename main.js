@@ -1,8 +1,7 @@
-console.log("Instructions: " + 
-	"\nUse command 'add' to follow the prompts and add a new flashcard."
-	"\nUse command 'study' to study your flashcards."
-	"\nUse command 'review' to review your flashcards."
-
+console.log("Instructions: "
+	+ "\nUse command 'add' to follow the prompts and add a new flashcard."
+	// + "\nUse command 'study' to study your flashcards."
+	// + "\nUse command 'review' to review your flashcards."
 );
 
 
@@ -19,3 +18,5 @@ switch(command) {
         reviewCloze()
         break;
 }
+
+
