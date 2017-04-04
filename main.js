@@ -20,3 +20,8 @@ switch(command) {
 }
 
 
+// write inquirer prompts
+
+// addCard function to initiate constructors
+
+// store new data to data.txt
