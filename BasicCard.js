@@ -3,4 +3,4 @@ function BasicCard (question, answer) {
 	this.answer = answer;
 }
 
-// module.exports = BasicCard;
+module.exports = BasicCard;
