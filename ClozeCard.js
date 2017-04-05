@@ -3,25 +3,22 @@ function ClozeCard (full, answer) {
 	this.cloze = answer;
 
 	this.partial = function() {
+		// Split the full text and cloze into arrays.
 		var fullArr = this.full.split(" ");
-		console.log(fullArr);  // 'George', 'Washington', 'was', 'the', 'first', 'president'
 		var clozeArr = this.cloze.split(" ");
-		console.log(clozeArr);  // 'George', 'Washington'
 
+		// Within the full text, replace cloze with "..."
 		var index = fullArr.indexOf(clozeArr[0]);
-		console.log(index);
-		console.log(fullArr[index]);
-
 		fullArr[index] = "...";
-		console.log(fullArr);
 
+		// If cloze is more than word, loop is needed to remove the rest from the full text.
 		if (clozeArr.length > 1) {
 			for (var i = 1; i < clozeArr.length; i++) {
 				var index = fullArr.indexOf(clozeArr[i]);
 				fullArr.splice(index, 1);
 			}
 		}
-		console.log(fullArr.toString());
+		console.log(fullArr.join(" "));
 	}
 
 	this.reviewCloze = function() {
@@ -31,6 +28,5 @@ function ClozeCard (full, answer) {
 
 module.exports = ClozeCard;
 
-var first = new ClozeCard("George Washington was the first president", "George Washington");
-console.log(first.full);
+var first = new ClozeCard("my name is erin camomile glabe", "erin camomile glabe");
 first.partial();
