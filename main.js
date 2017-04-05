@@ -39,13 +39,11 @@ function addCard() {
 		}
 	]).then(function(input) {
 
-		var newCard = new BasicCard(input.question, input.answer, input.full);
+		var newBasicCard = new BasicCard(input.question, input.answer);
 
-		// initializes the variable newguy to be a programmer object which will take
-		// in all of the user's answers to the questions above
-		var newGuy = new Programmer(answers.name, answers.position, answers.age, answers.language);
-		// printInfo method is run to show that the newguy object was successfully created and filled
-		newGuy.printInfo();
+		var newClozeCard = new ClozeCard(input.full, input.answer);
+		newClozeCard.partial();
+
 	});
 }
 

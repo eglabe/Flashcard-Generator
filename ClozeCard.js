@@ -18,8 +18,11 @@ function ClozeCard (full, answer) {
 				fullArr.splice(index, 1);
 			}
 		}
+
+		// Turns the text array into a string and replaces commas for spaces.
 		partialCloze = fullArr.join(" ");
-		console.log(partialCloze);
+
+		return partialCloze;
 	}
 
 	this.reviewCloze = function() {
@@ -33,3 +36,4 @@ module.exports = ClozeCard;
 // console.log(first.full);
 // console.log(first.cloze);
 // first.partial();
+// console.log(first.partial());
