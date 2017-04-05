@@ -1,8 +1,6 @@
-var BasicCards = require("./BasicCards.js");
-
-function ClozeCard (full) {
+function ClozeCard (full, answer) {
 	this.full = full;
-	this.cloze = BasicCards.answer;
+	this.cloze = answer;
 
 	this.partial = function() {
 
@@ -12,3 +10,5 @@ function ClozeCard (full) {
 		
 	}
 }
+
+module.exports = ClozeCard;

@@ -1,5 +1,5 @@
 var inquirer = require("inquirer");
-var ClozeCard = require("./ClozeCard.js");
+var BasicCard = require("./BasicCard.js");
 
 var command = process.argv[2];
 
@@ -37,9 +37,8 @@ function addCard() {
 		  message: "Turn the 'queston' and 'answer' above into a full sentence. (for review)"
 		}
 	]).then(function(input) {
-		var question = input.question;
-		var answer = input.answer;
-		var full = input.full;
+
+		var newCard = new BasicCard(input.question, input.answer, input.full);
 
 		// initializes the variable newguy to be a programmer object which will take
 		// in all of the user's answers to the questions above
