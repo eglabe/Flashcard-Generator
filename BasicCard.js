@@ -1,6 +1,4 @@
-var ClozeCard = require("./ClozeCard.js");
-
-function BasicCard (question, answer, full) {
+function BasicCard (question, answer) {
 	this.question = question;
 	this.answer = answer;
 

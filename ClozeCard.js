@@ -8,8 +8,8 @@ function ClozeCard (full, answer) {
 		var clozeArr = this.cloze.split(" ");
 		console.log(clozeArr);  // 'George', 'Washington'
 
-
-
+		
+		
 		// var index = this.full.indexOf("George");
 		// console.log(index);
 		// console.log(this.full[index]);
