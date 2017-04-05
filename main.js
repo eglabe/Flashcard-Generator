@@ -1,4 +1,5 @@
 var inquirer = require("inquirer");
+var ClozeCard = require("./ClozeCard.js");
 
 var command = process.argv[2];
 
@@ -36,17 +37,24 @@ function addCard() {
 		  message: "Turn the 'queston' and 'answer' above into a full sentence. (for review)"
 		}
 	]).then(function(input) {
-		console.log(input.question);
-		console.log(input.answer);
-		console.log(input.full);
-		// // initializes the variable newguy to be a programmer object which will take
-		// // in all of the user's answers to the questions above
-		// var newGuy = new Programmer(answers.name, answers.position, answers.age, answers.language);
-		// // printInfo method is run to show that the newguy object was successfully created and filled
-		// newGuy.printInfo();
+		var question = input.question;
+		var answer = input.answer;
+		var full = input.full;
+
+		// initializes the variable newguy to be a programmer object which will take
+		// in all of the user's answers to the questions above
+		var newGuy = new Programmer(answers.name, answers.position, answers.age, answers.language);
+		// printInfo method is run to show that the newguy object was successfully created and filled
+		newGuy.printInfo();
 	});
 }
 
 // addCard function to initiate constructors
 
 // store new data to data.txt
+
+
+
+
+
+
