@@ -8,11 +8,20 @@ function ClozeCard (full, answer) {
 		var clozeArr = this.cloze.split(" ");
 		console.log(clozeArr);  // 'George', 'Washington'
 
-		
-		
-		// var index = this.full.indexOf("George");
-		// console.log(index);
-		// console.log(this.full[index]);
+		var index = fullArr.indexOf(clozeArr[0]);
+		console.log(index);
+		console.log(fullArr[index]);
+
+		fullArr[index] = "...";
+		console.log(fullArr);
+
+		if (clozeArr.length > 1) {
+			for (var i = 1; i < clozeArr.length; i++) {
+				var index = fullArr.indexOf(clozeArr[i]);
+				fullArr.splice(index, 1);
+			}
+		}
+		console.log(fullArr.toString());
 	}
 
 	this.reviewCloze = function() {
