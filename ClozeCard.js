@@ -18,7 +18,8 @@ function ClozeCard (full, answer) {
 				fullArr.splice(index, 1);
 			}
 		}
-		console.log(fullArr.join(" "));
+		partialCloze = fullArr.join(" ");
+		console.log(partialCloze);
 	}
 
 	this.reviewCloze = function() {
@@ -28,5 +29,7 @@ function ClozeCard (full, answer) {
 
 module.exports = ClozeCard;
 
-var first = new ClozeCard("my name is erin camomile glabe", "erin camomile glabe");
-first.partial();
+// var first = new ClozeCard("my name is john jacob jingleheimer schmidt", "john jacob jingleheimer schmidt");
+// console.log(first.full);
+// console.log(first.cloze);
+// first.partial();
