@@ -1,10 +1,5 @@
-var fs = require("fs");
 
-function ClozeCard (full, answer) {
-	this.full = full;
-	this.cloze = answer;
-
-	this.partial = function() {
+Full Text: c Partial Text: function () {
 		// Split the full text and cloze into arrays.
 		var fullArr = this.full.split(" ");
 		var clozeArr = this.cloze.split(" ");
@@ -25,23 +20,4 @@ function ClozeCard (full, answer) {
 		partialCloze = fullArr.join(" ");
 
 		return partialCloze;
-	}
-
-	this.printClozeData = function() {
-		var flashcard = "\nFull Text: " + this.full + " Partial Text: " + this.partial + " Cloze: " + this.cloze;
-		fs.appendFile("cloze.txt", flashcard);
-	}
-
-	this.reviewCloze = function() {
-		
-	}
-}
-
-module.exports = ClozeCard;
-
-// // Text
-// var first = new ClozeCard("my name is john jacob jingleheimer schmidt", "john jacob jingleheimer schmidt");
-// console.log(first.full);
-// console.log(first.cloze);
-// first.partial();
-// console.log(first.partial());
+	} Cloze: b
