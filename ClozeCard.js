@@ -28,8 +28,8 @@ function ClozeCard (full, answer) {
 	}
 
 	this.printClozeData = function() {
-		var flashcard = "\nFull Text: " + this.full + " Partial Text: " + this.partial + " Cloze: " + this.cloze;
-		fs.appendFile("cloze.txt", flashcard);
+		var flashcard = "\nFull Text: " + this.full + " Partial Text: " + this.partial() + " Cloze: " + this.cloze;
+		fs.appendFile("cloze.txt", flashcard, function(){});
 	}
 
 	this.reviewCloze = function() {

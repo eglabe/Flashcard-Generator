@@ -1,6 +1,8 @@
 var inquirer = require("inquirer");
 var BasicCard = require("./BasicCard.js");
 var ClozeCard = require("./ClozeCard.js");
+var fs = require("fs");
+
 
 var command = process.argv[2];
 
@@ -17,7 +19,13 @@ switch(command) {
         addCard()
         break;
     case "study":
-        studyBasic()
+        //studyBasic()
+        fs.readFile('basic.txt', 'utf8', function(err, data) {
+        	var allTheCards = JSON.parse(data);
+
+        	console.log(JSON.stringify(allTheCards[0], null, 2));
+        });
+
         break;        
     case "review":
         reviewCloze()
@@ -39,12 +47,28 @@ function addCard() {
 		}
 	]).then(function(input) {
 
-		var newBasicCard = new BasicCard(input.question, input.answer);
-		newBasicCard.printBasicData();
+		// 1. read all the current file contents into an array
 
-		var newClozeCard = new ClozeCard(input.full, input.answer);
-		newClozeCard.partial();
-		newClozeCard.printClozeData();
+		// 2. add new card to that array
+
+		// 3. overwrite over file
+
+		var basicArr = [];
+		fs.readFile("basic.txt", "utf8", function(err, data) {
+			basicArr.push(JSON.parse(data));
+		})
+
+		var newBasicCard = new BasicCard(input.question, input.answer);
+		basicArr.push(newBasicCard);
+
+		fs.writeFile("basic.txt", JSON.stringify(basicArr), function(){});
+
+
+
+
+		// var newClozeCard = new ClozeCard(input.full, input.answer);
+		// newClozeCard.partial();
+		// newClozeCard.printClozeData();
 
 	});
 }
