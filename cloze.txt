@@ -1,1 +1,1 @@
-[{"question":"usa capital?","answer":"DC"}]
+[{"full":"erin is my name","cloze":"erin"}]

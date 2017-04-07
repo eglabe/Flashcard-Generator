@@ -9,8 +9,8 @@ var command = process.argv[2];
 if (!command) {
 	console.log("Instructions: "
 	+ "\nUse command 'add' to follow the prompts and add a new flashcard."
-	// + "\nUse command 'study' to study your flashcards."
-	// + "\nUse command 'review' to review what you have learned."
+	+ "\nUse command 'study' to study your flashcards."
+	+ "\nUse command 'review' to review what you have learned."
 	);
 }
 
@@ -63,13 +63,13 @@ function addCard() {
 
 		// CLOZE CARD
 		var clozeArr = [];
-		fs.readFile("cloze.txt", "utf8", function(err, data) {
-			clozeArr.push(JSON.parse(data));
-		console.log(clozeArr);
-		})
+		// fs.readFile("cloze.txt", "utf8", function(err, data) {
+		// 	clozeArr.push(JSON.parse(data));
+		// console.log(clozeArr);
+		// })
 
-		var newBasicCard = new BasicCard(input.question, input.answer);
-		clozeArr.push(newBasicCard);
+		var newClozeCard = new ClozeCard(input.full, input.answer);
+		clozeArr.push(newClozeCard);
 		console.log(clozeArr);
 
 		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});

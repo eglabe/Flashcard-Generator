@@ -1,1 +1,1 @@
-[{"question":"usa capital?","answer":"DC"}]
+[{"question":"what's my name","answer":"erin"}]
