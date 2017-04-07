@@ -1,1 +1,1 @@
-[{"full":"erin is my name","cloze":"erin"}]
+["\nFull Text: george was the first pres Partial Text: ... was the first pres Cloze: george"]

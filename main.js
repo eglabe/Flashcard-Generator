@@ -50,27 +50,27 @@ function addCard() {
 		// BASIC CARD 
 		var basicArr = [];
 		fs.readFile("basic.txt", "utf8", function(err, data) {
-			basicArr.push(JSON.parse(data));
-		console.log(basicArr);
-		})
+			basicArr.push(data);
+			// basicArr.push(JSON.parse(data));
+		});
 
 		var newBasicCard = new BasicCard(input.question, input.answer);
 		basicArr.push(newBasicCard);
-		console.log(basicArr);
 
 		fs.writeFile("basic.txt", JSON.stringify(basicArr), function(){});
 
 
 		// CLOZE CARD
 		var clozeArr = [];
-		// fs.readFile("cloze.txt", "utf8", function(err, data) {
-		// 	clozeArr.push(JSON.parse(data));
-		// console.log(clozeArr);
-		// })
+		fs.readFile("cloze.txt", "utf8", function(err, data) {
+			clozeArr.push(data);
+			// clozeArr.push(JSON.parse(data));
+		});
 
 		var newClozeCard = new ClozeCard(input.full, input.answer);
-		clozeArr.push(newClozeCard);
-		console.log(clozeArr);
+		newClozeCard.partial();
+		newClozeCard.printClozeData();
+		clozeArr.push(newClozeCard.printClozeData());
 
 		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});
 	});

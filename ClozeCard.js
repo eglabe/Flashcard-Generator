@@ -38,7 +38,7 @@ function ClozeCard (full, answer) {
 
 module.exports = ClozeCard;
 
-// // Text
+// // Test
 // var first = new ClozeCard("my name is john jacob jingleheimer schmidt", "john jacob jingleheimer schmidt");
 // console.log(first.full);
 // console.log(first.cloze);
