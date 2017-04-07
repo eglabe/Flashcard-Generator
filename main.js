@@ -19,13 +19,7 @@ switch(command) {
         addCard()
         break;
     case "study":
-        //studyBasic()
-        fs.readFile('basic.txt', 'utf8', function(err, data) {
-        	var allTheCards = JSON.parse(data);
-
-        	console.log(JSON.stringify(allTheCards[0], null, 2));
-        });
-
+        studyBasic()
         break;        
     case "review":
         reviewCloze()
@@ -53,7 +47,7 @@ function addCard() {
 
 		// 3. overwrite over file
 
-		// BASIC CARD
+		// BASIC CARD 
 		var basicArr = [];
 		fs.readFile("basic.txt", "utf8", function(err, data) {
 			basicArr.push(JSON.parse(data));
@@ -82,9 +76,23 @@ function addCard() {
 	});
 }
 
-// addCard function to initiate constructors
+function studyBasic() {
+    fs.readFile('basic.txt', 'utf8', function(err, data) {
+	var allBasicCards = JSON.parse(data);
 
-// store new data to data.txt
+	console.log(JSON.stringify(allBasicCards[0], null, 2));
+    });
+}
+
+function reviewCloze() {
+    fs.readFile('cloze.txt', 'utf8', function(err, data) {
+	var allClozeCards = JSON.parse(data);
+
+	console.log(JSON.stringify(allClozeCards[0], null, 2));
+    });
+}
+
+
 
 
 
