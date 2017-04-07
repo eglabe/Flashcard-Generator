@@ -1,1 +1,1 @@
-[{"full":"Today is Friday","cloze":"Friday","partialText":"Today is ..."}]
+[{"full":"Earth is the third planet from the Sun.","cloze":"Earth","partialText":"... is the third planet from the Sun."}]

@@ -1,1 +1,1 @@
-[{"question":"What day is it?","answer":"Friday"}]
+[{"question":"What is the third planet from the Sun?","answer":"Earth"}]

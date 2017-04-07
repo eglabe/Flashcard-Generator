@@ -1,18 +1,20 @@
-var inquirer = require("inquirer");
 var BasicCard = require("./BasicCard.js");
 var ClozeCard = require("./ClozeCard.js");
+
 var fs = require("fs");
+var chalk = require("chalk");
+var inquirer = require("inquirer");
 
 
 var command = process.argv[2];
 
 if (!command) {
-	console.log("Instructions: "
-	+ "\nUse command 'add' to follow the prompts and add a new flashcard."
-	+ "\nUse command 'basic' to view the basic flashcards."
-	+ "\nUse command 'cloze' to view the cloze flashcards."
-	// + "\nUse command 'study' to study your flashcards."
-	// + "\nUse command 'review' to review what you have learned."
+	console.log(chalk.blue.bold("Instructions: ")
+	+ "\nUse command" + chalk.green.bold(" add ") + "to follow the prompts and add a new flashcard."
+	+ "\nUse command" + chalk.green.bold(" basic ") + "to view the basic flashcards."
+	+ "\nUse command" + chalk.green.bold(" cloze ") + "to view the cloze flashcards."
+	// + "\nUse command" + chalk.green.bold(" study ") + "to study your flashcards."
+	// + "\nUse command" + chalk.green.bold(" review ") + "to review what you have learned."
 	);
 }
 
@@ -39,13 +41,13 @@ function addCard() {
 	inquirer.prompt([
 		{
 		  name: "question",
-		  message: "Type in a study question. (front of flashcard)"
+		  message: "Type in a study question. (e.g. What is the third planet from the Sun?)"
 		}, {
 		  name: "answer",
-		  message: "What is the anwer to the question you asked? (back of flashcard)"
+		  message: "What is the anwer to the question you asked? (e.g. Earth)"
 		}, {
 		  name: "full",
-		  message: "Turn the 'queston' and 'answer' above into a full sentence. (for review)"
+		  message: "Combine the 'queston' and 'answer' above into one statement. (e.g. Earth is the third planet from the Sun.)"
 		}
 	]).then(function(input) {
 
@@ -59,7 +61,7 @@ function addCard() {
 		var basicArr = [];
 		fs.readFile("basic.txt", "utf8", function(err, data) {
 			basicArr.push(data);
-			// basicArr.push(JSON.parse(data));
+			// basicArr.push(JSON.parse(data), function(){});
 		});
 
 		var newBasicCard = new BasicCard(input.question, input.answer);
@@ -72,12 +74,11 @@ function addCard() {
 		var clozeArr = [];
 		fs.readFile("cloze.txt", "utf8", function(err, data) {
 			clozeArr.push(data);
-			// clozeArr.push(JSON.parse(data));
+			// clozeArr.push(JSON.parse(data), function(){});
 		});
 
 		var newClozeCard = new ClozeCard(input.full, input.answer);
 		newClozeCard.partial();
-		// newClozeCard.printClozeData();
 		clozeArr.push(newClozeCard);
 
 		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});
@@ -101,11 +102,11 @@ function viewCloze() {
 }
 
 // function studyBasic() {
-
+	// // Loop through cards one at a time
 // }
 
 // function reviewCloze() {
-	
+	// // Loop through cards one at a time
 // }
 
 
