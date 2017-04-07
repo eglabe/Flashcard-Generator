@@ -5,7 +5,6 @@ function BasicCard (question, answer) {
 
 	this.printBasicData = function() {
 		return "\nQuestion: " + this.question + " Answer: " + this.answer;
-		
 	}
 
 	this.studyBasic = function() {

@@ -53,23 +53,32 @@ function addCard() {
 
 		// 3. overwrite over file
 
+		// BASIC CARD
 		var basicArr = [];
 		fs.readFile("basic.txt", "utf8", function(err, data) {
 			basicArr.push(JSON.parse(data));
+		console.log(basicArr);
 		})
 
 		var newBasicCard = new BasicCard(input.question, input.answer);
 		basicArr.push(newBasicCard);
+		console.log(basicArr);
 
 		fs.writeFile("basic.txt", JSON.stringify(basicArr), function(){});
 
 
+		// CLOZE CARD
+		var clozeArr = [];
+		fs.readFile("cloze.txt", "utf8", function(err, data) {
+			clozeArr.push(JSON.parse(data));
+		console.log(clozeArr);
+		})
 
+		var newBasicCard = new BasicCard(input.question, input.answer);
+		clozeArr.push(newBasicCard);
+		console.log(clozeArr);
 
-		// var newClozeCard = new ClozeCard(input.full, input.answer);
-		// newClozeCard.partial();
-		// newClozeCard.printClozeData();
-
+		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});
 	});
 }
 
