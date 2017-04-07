@@ -1,1 +1,1 @@
-[{"question":"Who was teh first pres?","answer":"george"}]
+[{"question":"What day is it?","answer":"Friday"}]

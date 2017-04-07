@@ -9,8 +9,10 @@ var command = process.argv[2];
 if (!command) {
 	console.log("Instructions: "
 	+ "\nUse command 'add' to follow the prompts and add a new flashcard."
-	+ "\nUse command 'study' to study your flashcards."
-	+ "\nUse command 'review' to review what you have learned."
+	+ "\nUse command 'basic' to view the basic flashcards."
+	+ "\nUse command 'cloze' to view the cloze flashcards."
+	// + "\nUse command 'study' to study your flashcards."
+	// + "\nUse command 'review' to review what you have learned."
 	);
 }
 
@@ -18,12 +20,18 @@ switch(command) {
 	case "add":
         addCard()
         break;
-    case "study":
-        studyBasic()
+    case "basic":
+        viewBasic()
         break;        
-    case "review":
-        reviewCloze()
+    case "cloze":
+        viewCloze()
         break;
+    // case "study":
+    //     studyBasic()
+    //     break;        
+    // case "review":
+    //     reviewCloze()
+    //     break;
 }
 
 
@@ -69,14 +77,14 @@ function addCard() {
 
 		var newClozeCard = new ClozeCard(input.full, input.answer);
 		newClozeCard.partial();
-		newClozeCard.printClozeData();
-		clozeArr.push(newClozeCard.printClozeData());
+		// newClozeCard.printClozeData();
+		clozeArr.push(newClozeCard);
 
 		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});
 	});
 }
 
-function studyBasic() {
+function viewBasic() {
     fs.readFile('basic.txt', 'utf8', function(err, data) {
 	var allBasicCards = JSON.parse(data);
 
@@ -84,13 +92,21 @@ function studyBasic() {
     });
 }
 
-function reviewCloze() {
+function viewCloze() {
     fs.readFile('cloze.txt', 'utf8', function(err, data) {
 	var allClozeCards = JSON.parse(data);
 
 	console.log(JSON.stringify(allClozeCards[0], null, 2));
     });
 }
+
+// function studyBasic() {
+
+// }
+
+// function reviewCloze() {
+	
+// }
 
 
 

@@ -27,6 +27,8 @@ function ClozeCard (full, answer) {
 		return partialCloze;
 	}
 
+	this.partialText = this.partial();
+	
 	this.printClozeData = function() {
 		return "\nFull Text: " + this.full + " Partial Text: " + this.partial() + " Cloze: " + this.cloze;
 	}
