@@ -7,9 +7,9 @@ function BasicCard (question, answer) {
 		return "\nQuestion: " + this.question + " Answer: " + this.answer;
 	}
 
-	this.studyBasic = function() {
+	// this.studyBasic = function() {
 		
-	}
+	// }
 }
 
 module.exports = BasicCard;

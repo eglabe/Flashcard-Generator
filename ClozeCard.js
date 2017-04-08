@@ -1,5 +1,3 @@
-var fs = require("fs");
-
 function ClozeCard (full, answer) {
 	this.full = full;
 	this.cloze = answer;
@@ -28,14 +26,14 @@ function ClozeCard (full, answer) {
 	}
 
 	this.partialText = this.partial();
-	
+
 	this.printClozeData = function() {
 		return "\nFull Text: " + this.full + " Partial Text: " + this.partial() + " Cloze: " + this.cloze;
 	}
 
-	this.reviewCloze = function() {
+	// this.reviewCloze = function() {
 		
-	}
+	// }
 }
 
 module.exports = ClozeCard;
