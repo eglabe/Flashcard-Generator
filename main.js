@@ -51,37 +51,28 @@ function addCard() {
 		}
 	]).then(function(input) {
 
-		// 1. read all the current file contents into an array
-
-		// 2. add new card to that array
-
-		// 3. overwrite over file
-
 		// BASIC CARD 
 		var basicArr = [];
 		fs.readFile("basic.txt", "utf8", function(err, data) {
-			basicArr.push(data);
-			// basicArr.push(JSON.parse(data), function(){});
+			basicArr = data ? JSON.parse(data) : [];
+
+			var newBasicCard = new BasicCard(input.question, input.answer);
+			basicArr.push(newBasicCard);
+
+			fs.writeFile("basic.txt", JSON.stringify(basicArr, null, 2), function(){});
 		});
-
-		var newBasicCard = new BasicCard(input.question, input.answer);
-		basicArr.push(newBasicCard);
-
-		fs.writeFile("basic.txt", JSON.stringify(basicArr), function(){});
-
-
+		
 		// CLOZE CARD
 		var clozeArr = [];
 		fs.readFile("cloze.txt", "utf8", function(err, data) {
-			clozeArr.push(data);
-			// clozeArr.push(JSON.parse(data), function(){});
+			clozeArr = data ? JSON.parse(data) : [];
+
+			var newClozeCard = new ClozeCard(input.full, input.answer);
+			newClozeCard.partial();
+			clozeArr.push(newClozeCard);
+
+			fs.writeFile("cloze.txt", JSON.stringify(clozeArr, null, 2), function(){});
 		});
-
-		var newClozeCard = new ClozeCard(input.full, input.answer);
-		newClozeCard.partial();
-		clozeArr.push(newClozeCard);
-
-		fs.writeFile("cloze.txt", JSON.stringify(clozeArr), function(){});
 	});
 }
 
@@ -108,9 +99,6 @@ function viewCloze() {
 // function reviewCloze() {
 	// // Loop through cards one at a time
 // }
-
-
-
 
 
 
